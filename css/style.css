@@ -1,0 +1,267 @@
+/* Fonts */
+@font-face {
+    font-family: 'Cairo Regular';
+    src: url(../fonts/Cairo-Regular.ttf);
+    font-display: swap;
+}
+
+/* Start global rules */
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition-duration: 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo Regular';
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        inline-size: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        inline-size: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        inline-size: 1170px;
+    }
+}
+
+/* End global rules */
+
+/* Start header */
+.header {
+    background-color: #fff;
+    box-shadow: 0 0 10px #ddd;
+    position: relative;
+}
+
+.header .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header .logo {
+    color: var(--main-color);
+    font-size: 2rem;
+    font-weight: bold;
+    justify-content: center;
+    height: 72px;
+}
+
+.header .main-nav__list {
+    display: flex;
+}
+
+.header .main-nav__item>.main-nav__link {
+    color: #000;
+    height: 72px;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0 30px;
+    text-transform: capitalize;
+    transition: var(--main-transition-duration);
+}
+
+.header .main-nav__item>.main-nav__link::before {
+    content: '';
+    position: absolute;
+    background-color: var(--main-color);
+    width: 100%;
+    height: 4px;
+    top: 0;
+    left: -100%;
+    overflow: hidden;
+    transition: var(--main-transition-duration);
+}
+
+.header .main-nav__item>.main-nav__link:hover {
+    color: var(--main-color);
+    background-color: #fafafa;
+}
+
+.header .main-nav__item>.main-nav__link:hover::before {
+    left: 0;
+}
+
+@media (max-width: 767px) {
+    .header .logo {
+        width: 100%;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .header .main-nav__list {
+        margin: auto;
+    }
+
+    .header .main-nav__item>.main-nav__link {
+        padding: 10px;
+        font-size: 14px;
+        height: 40px;
+    }
+}
+
+/* End header */
+
+/* Start Landing */
+.landing {
+    position: relative;
+}
+
+.landing::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #ececec;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+}
+
+.landing .container {
+    min-height: calc(100vh - 72px);
+    padding-block-end: 120px;
+}
+
+.landing__text {
+    flex: 1;
+}
+
+.landing__title {
+    font-size: 40px;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.landing__description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 5px 0 0;
+    color: #777;
+    max-width: 500px;
+}
+
+.landing .landing__image img {
+    position: relative;
+    width: 600px;
+    animation: up-and-down 5s linear infinite;
+}
+
+.landing__go-down {
+    color: var(--main-color);
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: var(--main-transition-duration);
+}
+
+.landing__go-down:hover {
+    color: var(--main-color-alt);
+}
+
+.landing__go-down--arrow {
+    animation: bouncing 1.5s infinite;
+}
+
+@media(max-width: 767px) {
+    .landing__title {
+        font-size: 28px;
+    }
+
+    .landing__description {
+        font-size: 16px;
+    }
+}
+
+@media(max-width:991px) {
+    .landing__image {
+        display: none;
+    }
+
+    .landing__text {
+        text-align: center;
+    }
+
+
+    .landing__description {
+        margin: 10px auto;
+    }
+}
+
+/* End Landing */
+
+/* Start animation */
+@keyframes up-and-down {
+
+    0%,
+    100% {
+        top: 0;
+    }
+
+    50% {
+        top: -50px;
+    }
+}
+
+@keyframes bouncing {
+
+    0%,
+    10%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40%,
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/* End animation */
